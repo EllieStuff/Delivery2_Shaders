@@ -37,6 +37,7 @@
 				 #pragma multi_compile __ POINT_LIGHT_ON 
 				 #pragma multi_compile __ DIRECTIONAL_LIGHT_ON
 				 #pragma multi_compile __ DIRECTIONAL_LIGHT_ON
+				 #pragma SHADOW_CASTER_PASS
 				 #include "UnityCG.cginc"
 
 				 struct appdata
@@ -63,7 +64,7 @@
 					 positionCS.z = max(positionCS.z, positionCS.w * UNITY_NEAR_CLIP_VALUE);
 
 					 o.wPos = ShadowCaster(i.wPos, i.worldNormal);
-	º				#endif
+	 				#endif
 
 					 return positionCS;
 				 }
