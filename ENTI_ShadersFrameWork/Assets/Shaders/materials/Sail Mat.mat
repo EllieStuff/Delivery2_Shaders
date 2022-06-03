@@ -21,7 +21,7 @@ Material:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: Sail Mat
-  m_Shader: {fileID: 4800000, guid: 775ab8548601518478eed5e22b9ec81c, type: 3}
+  m_Shader: {fileID: 4800000, guid: 86f8696b669d2614abbb8257df310674, type: 3}
   m_ShaderKeywords: 
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
