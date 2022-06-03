@@ -1,0 +1,25 @@
+
+ToDo:
+Post Processing - 3
+	- Vignetting/Blur/Pixelate - 1 (cutrillo)
+	- Bloom a partir de Blur - 2
+
+Shader in Unity - 3
+	- Adding feature to our PBR shader - 1
+	- Implement multiple light handling & spotlight -2
+
+Compute Shaders - 2
+Si hi ha temps
+	- Boids Implementation - 2
+Si no
+	- Make a GPU particle system - 1
+
+Addittional Implementations
+	- Texture animation - 0.5 o 1
+	- Emissive Mat - 0.5
+	- Transparent Mat - 0.5
+	- Triplanar textures - 0.5 o 1
+
+Rogue Exercise - 2
+Si hi ha temps
+	- Shader in Unity: Create materials for the whole scene using your material - 2
