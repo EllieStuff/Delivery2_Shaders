@@ -47,6 +47,25 @@
 					 float3 normal : NORMAL;
 				 };
 
+				fixed4 _objectColor;
+				float _alpha;
+
+				float _ambientInt;//How strong it is?
+				fixed4 _ambientColor;
+				float _diffuseInt;
+				float _scecularExp;
+
+				float4 _pointLightPos;
+				float4 _pointLightColor;
+				float _pointLightIntensity;
+
+				float4 _directionalLightDir;
+				float4 _directionalLightColor;
+				float _directionalLightIntensity;
+				float _materialQ;
+				Texture2D _MainTex;
+				SamplerState sampler_MainTex;
+
 				 struct v2f
 				 {
 					 float2 uv : TEXCOORD0;
@@ -55,17 +74,12 @@
 					 float3 wPos : TEXCOORD2;
 				 };
 
-				 float4 ShadowCaster(float3 positionWS, float3 normalWS) {
-
-
+				 float4 ShadowCaster(float3 positionWS, float3 normalWS) 
+				 {
 					 float4 positionCS = float4(0, 0, 0, 0);
 					#ifdef SHADOW_CASTER_PASS
-					 positionCS = TransformWorldToHClip(ApplyShadowBias(positionWS, normalWS, _LightDirection));
-					 positionCS.z = max(positionCS.z, positionCS.w * UNITY_NEAR_CLIP_VALUE);
-
-					 o.wPos = ShadowCaster(i.wPos, i.worldNormal);
+					 positionCS = TransformWorldToHClip(ApplyShadowBias(positionWS, normalWS, _directionalLightDir));
 	 				#endif
-
 					 return positionCS;
 				 }
 
@@ -73,31 +87,12 @@
 				 {
 					 v2f o;
 					 o.vertex = UnityObjectToClipPos(v.vertex);
-					 //o.uv = TRANSFORM_TEX(v.uv, _MainTex);
 					 o.uv = v.uv;
 					 o.worldNormal = UnityObjectToWorldNormal(v.normal);
-					 o.wPos = mul(unity_ObjectToWorld, v.vertex).xyz;
+					 o.wPos = ShadowCaster(o.wPos, o.worldNormal);
 					 return o;
 				 }
 
-				 fixed4 _objectColor;
-				 float _alpha;
-
-				 float _ambientInt;//How strong it is?
-				 fixed4 _ambientColor;
-				 float _diffuseInt;
-				 float _scecularExp;
-
-				 float4 _pointLightPos;
-				 float4 _pointLightColor;
-				 float _pointLightIntensity;
-
-				 float4 _directionalLightDir;
-				 float4 _directionalLightColor;
-				 float _directionalLightIntensity;
-				 float _materialQ;
-				 Texture2D _MainTex;
-				 SamplerState sampler_MainTex;
 				 //float4 samplera = TEXTURE2D_SAMPLER2D(_mainTexture, sampler_MainTex);
 
 				 fixed4 frag(v2f i) : SV_Target
