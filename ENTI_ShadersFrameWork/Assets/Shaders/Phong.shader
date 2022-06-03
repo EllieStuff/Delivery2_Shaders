@@ -37,7 +37,6 @@
 				 #pragma multi_compile __ POINT_LIGHT_ON 
 				 #pragma multi_compile __ DIRECTIONAL_LIGHT_ON
 				 #pragma multi_compile __ DIRECTIONAL_LIGHT_ON
-				 #pragma SHADOW_CASTER_PASS
 				 #include "UnityCG.cginc"
 
 				 struct appdata
@@ -55,18 +54,6 @@
 					 float3 wPos : TEXCOORD2;
 				 };
 
-				 float4 ShadowCaster(float3 positionWS, float3 normalWS) {
-
-					 float4 positionCS;
-
-					#ifdef SHADOW_CASTER_PASS
-					 positionCS = TransformWorldToHClip(ApplyShadowBias(positionWS, normalWS, _LightDirection));
-					 positionCS.z = max(positionCS.z, positionCS.w * UNITY_NEAR_CLIP_VALUE);
-					#endif
-
-					 return positionCS;
-				 }
-
 
 				 v2f vert(appdata v)
 				 {
@@ -75,7 +62,7 @@
 					 //o.uv = TRANSFORM_TEX(v.uv, _MainTex);
 					 o.uv = v.uv;
 					 o.worldNormal = UnityObjectToWorldNormal(v.normal);
-					 o.wPos = ShadowCaster(mul(unity_ObjectToWorld, v.vertex).xyz, o.worldNormal);
+					 o.wPos = mul(unity_ObjectToWorld, v.vertex).xyz;
 					 return o;
 				 }
 

@@ -138,5 +138,5 @@ Material:
     - _directionalLightDir: {r: 0, g: 1, b: 0, a: 1}
     - _objectColor: {r: 1, g: 1, b: 1, a: 1}
     - _pointLightColor: {r: 0, g: 0, b: 0, a: 1}
-    - _pointLightPos: {r: 0, g: 10, b: 0, a: 1}
+    - _pointLightPos: {r: 0, g: 0, b: 0, a: 1}
   m_BuildTextureStacks: []
