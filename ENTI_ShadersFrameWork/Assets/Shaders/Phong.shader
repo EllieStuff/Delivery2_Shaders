@@ -54,6 +54,19 @@
 					 float3 wPos : TEXCOORD2;
 				 };
 
+				 float4 ShadowCaster(float3 positionWS, float3 normalWS) {
+
+
+					 float4 positionCS = float4(0, 0, 0, 0);
+					#ifdef SHADOW_CASTER_PASS
+					 positionCS = TransformWorldToHClip(ApplyShadowBias(positionWS, normalWS, _LightDirection));
+					 positionCS.z = max(positionCS.z, positionCS.w * UNITY_NEAR_CLIP_VALUE);
+
+					 o.wPos = ShadowCaster(i.wPos, i.worldNormal);
+	º				#endif
+
+					 return positionCS;
+				 }
 
 				 v2f vert(appdata v)
 				 {
