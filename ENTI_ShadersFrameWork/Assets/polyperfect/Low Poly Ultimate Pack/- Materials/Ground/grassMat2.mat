@@ -120,7 +120,7 @@ Material:
     - _directionalLightDir: {r: 0, g: 1, b: 0, a: 1}
     - _objectColor: {r: 0.6886792, g: 0.6886792, b: 0.6886792, a: 1}
     - _pointLightColor: {r: 0, g: 1, b: 0.8066883, a: 1}
-    - _pointLightPos: {r: 0, g: 13, b: 0, a: 1}
+    - _pointLightPos: {r: 5, g: 10, b: 0, a: 1}
   m_BuildTextureStacks: []
 --- !u!114 &3640946965765905983
 MonoBehaviour:

@@ -48,9 +48,12 @@ Material:
     - _deltaTime: 52.62
     - _diffuseInt: 1
     - _directionalLightIntensity: 1
+    - _frequency: 2
     - _materialQ: 1
     - _pointLightIntensity: -10
+    - _range: 0.02
     - _scecularExp: 2
+    - _speed: 5
     - _time: 0.1
     m_Colors:
     - Color_5d52835afad84872a6501c3d7f7589f8: {r: 1, g: 1, b: 1, a: 0}
@@ -60,5 +63,5 @@ Material:
     - _directionalLightDir: {r: 0, g: 1, b: 0, a: 1}
     - _objectColor: {r: 1, g: 1, b: 1, a: 1}
     - _pointLightColor: {r: 0, g: 0.23137255, b: 1, a: 1}
-    - _pointLightPos: {r: -14.47, g: -8.85, b: 18.07, a: 0}
+    - _pointLightPos: {r: -14.47, g: 10, b: 18.07, a: 0}
   m_BuildTextureStacks: []
