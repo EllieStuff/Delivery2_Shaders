@@ -1,4 +1,4 @@
-Shader "Unlit/VignetteBlurRenderShader"
+Shader "Unlit/VignetteBlurRenderTexture"
 {
 	Properties
 	{
