@@ -6,7 +6,7 @@ Post Processing - 3
 
 Shader in Unity - 3
 	- Adding feature to our PBR shader - 1 --
-	- Implement multiple light handling & spotlight -2
+	- Implement multiple light handling & spotlight - 2 
 
 Compute Shaders - 2
 Si hi ha temps

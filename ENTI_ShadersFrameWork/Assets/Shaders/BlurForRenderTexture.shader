@@ -95,7 +95,6 @@
 
 					 finalColor = lerp(originalColor, color + bloomColor, _blend);
 
-					 //pointLight
 
 					 return finalColor;
 				 }
