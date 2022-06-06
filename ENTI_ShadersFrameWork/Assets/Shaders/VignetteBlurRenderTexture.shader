@@ -12,6 +12,10 @@ Shader "Unlit/VignetteBlurRenderTexture"
 		_deviation("Deviation",Float) = 0
 		_dir("Dir",Vector) = (0,0,0,1)
 		_iterations("Iterations",Int) = 0
+		_vignetteIntensity("Vinette Intensity" , Float) = 0.8
+		_strength("Strength", Float) = 1
+		_roundness("Roundness", Int) = 1
+		_vignetteBlend("Blend", Float) = 1
 
 	}
 		SubShader
@@ -64,6 +68,14 @@ Shader "Unlit/VignetteBlurRenderTexture"
 				float _deviation;
 				float2 _dir;
 				int _iterations;
+
+				float _vignetteIntensity;
+				float _strength;
+				float2 _center = float2(0, 0);
+				float2 _axisEffect = float2(1, 1);
+				int _roundness;
+				float _vignetteBlend;
+
 				//float4 samplera = TEXTURE2D_SAMPLER2D(_mainTexture, sampler_MainTex);
 
 				fixed4 frag(v2f i) : SV_Target
@@ -90,23 +102,17 @@ Shader "Unlit/VignetteBlurRenderTexture"
 					finalColor = lerp(originalColor, color, _blend);
 
 					//Vignette
-					float _intensity = 0.8;
-					float _strength = 1;
-					float2 _center = float2(0, 0);
-					float2 _axisEffect = float2(1, 1);
-					int _roundness = 1;
-					float _blend = 1;
 
 					float4 initColor = finalColor;
 
 					float2 darkCoord = ((i.uv + _center) * 2.0f) - 1.0f;
 					darkCoord = pow(abs(darkCoord), _roundness);
-					float factor = length(darkCoord * _axisEffect) * _intensity;
+					float factor = length(darkCoord * _axisEffect) * _vignetteIntensity;
 					factor = pow(factor, _strength);
 					factor = smoothstep(1, -1, factor);
 
 					float4 vignetteColor = initColor * factor;
-					vignetteColor.rgb = lerp(initColor.rgb, vignetteColor.rgb, _blend.xxx);
+					vignetteColor.rgb = lerp(initColor.rgb, vignetteColor.rgb, _vignetteBlend.xxx);
 					float factorColorThreshold = 0.4;
 
 					float dist = distance(float2(0.5, 0.5), i.uv);

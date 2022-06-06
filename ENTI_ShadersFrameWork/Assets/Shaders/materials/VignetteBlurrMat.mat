@@ -29,6 +29,10 @@ Material:
     - _deviation: 0.02
     - _intensity: 0.015
     - _iterations: 10
+    - _roundness: 1
+    - _strength: 1
+    - _vignetteBlend: 1
+    - _vignetteIntensity: 0.8
     m_Colors:
     - _BloomColor: {r: 0.9529412, g: 0.8509804, b: 0.12156863, a: 1}
     - _dir: {r: 2.29, g: 2.02, b: 4.28, a: 1}
