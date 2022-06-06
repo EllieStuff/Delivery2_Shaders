@@ -44,12 +44,25 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c53657e503d7a4738b0a9fa634fc1b92, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  position: {x: 0, y: 0, z: 0}
-  forward: {x: 0, y: 0, z: 0}
+  minSpeed: 5
+  maxSpeed: 8
+  perceptionRadius: 2.5
+  avoidanceRadius: 1
+  maxSteerForce: 8
+  alignWeight: 2
+  cohesionWeight: 1
+  separateWeight: 2.5
+  targetWeight: 2
+  boundsRadius: 0.27
+  avoidCollisionWeight: 10
+  collisionAvoidDst: 5
+  obstacleMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
   avgFlockHeading: {x: 0, y: 0, z: 0}
   avgAvoidanceHeading: {x: 0, y: 0, z: 0}
   centreOfFlockmates: {x: 0, y: 0, z: 0}
-  numPerceivedFlockmates: 0
+  numFlockmates: 0
 --- !u!1001 &1643705236267903838
 PrefabInstance:
   m_ObjectHideFlags: 0
